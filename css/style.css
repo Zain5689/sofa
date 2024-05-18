@@ -364,7 +364,14 @@ input {
   color: var(--black-color);
   font-size: 25px;
 }
-
+.about .content .box a {
+  padding: 15px;
+  background-color: var(--main-color);
+  color: var(--light-color);
+  border-radius: 50%;
+  transition: var(--main-transition);
+  cursor: pointer;
+}
 /* End About */
 /* start choose */
 .choose {

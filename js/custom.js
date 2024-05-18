@@ -99,11 +99,49 @@ for (let i = 0; i < minus.length; i++) {
   plus[i].onclick = function () {
     num++;
     input[i].value = num;
-    total[i].innerHTML = `$ ${49.0 * num}`;
+    total[i].innerHTML = `$ ${50 * num}`;
   };
 
   close[i].onclick = function (e) {
     console.log(e.target.parentNode);
     e.target.parentNode.remove();
   };
+}
+
+////////////////////////////////
+var counter = 0;
+var testimonials = document.getElementsByClassName("box");
+testimonials = Array.from(testimonials);
+var arrowleft = document.querySelector(".fa-arrow-left");
+var arrowright = document.querySelector(".fa-arrow-right");
+var move = 0;
+
+for (let i = 0; i < arrowleft.length; i++) {
+  arrowright[i].addEventListener("click", getNextTestimonial);
+  arrowleft[i].addEventListener("click", getPreviousTestimonial);
+}
+
+function getPreviousTestimonial() {
+  if (counter === 0) {
+    counter = 3;
+  } else {
+    counter -= 1;
+  }
+  for (var key in testimonials) {
+    move = -135 * counter;
+    testimonials[key].style.transition = "transform 1.5s ease";
+    testimonials[key].style.transform = "translate(" + move + "%)";
+  }
+}
+function getNextTestimonial() {
+  if (counter === 3) {
+    counter = 0;
+  } else {
+    counter += 1;
+  }
+  for (var key in testimonials) {
+    move = -135 * counter;
+    testimonials[key].style.transition = "transform 1.5s ease";
+    testimonials[key].style.transform = "translate(" + move + "%)";
+  }
 }
